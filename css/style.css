@@ -4,20 +4,26 @@
 	box-sizing: border-box;
 }
 
-body {
-	display: flex;
-	height: 100vh;
+.container{
+    position: relative;
+    max-width: 1000px;
+    margin: 100px auto;
+    display: flex;
 }
 
 .slider {
-	position: relative;
 	margin: auto;
-	height: 80%;
-	width: 60%;
 	max-width: 800px;
-	max-height: 400px;
-	background-color: salmon;
 }
+
+.side-imgs{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 20%;
+}
+
 
 .controls {
 	display: flex;
@@ -50,7 +56,7 @@ body {
 	position: absolute;
 	inset: 0;
 	display: none;
-	width: 100%;
+	width: 80%;
 	height: 100%;
 	object-fit: cover;
 	object-position: center;
