@@ -12,6 +12,7 @@ const arrImages = [
 ];
 
 const eleSlider = document.querySelector('.slider');
+const eleSide = document.querySelector('.side-imgs');
 const eleBtnUp = document.querySelector('.btn-up');
 const eleBtnDown = document.querySelector('.btn-down');
 
@@ -26,34 +27,51 @@ for (let i = 0; i < arrImages.length; i++) {
 	}
 
 	eleSlider.append(eleImg);
+
+	const eleSideImg = document.createElement('img');
+	eleSideImg.src = arrImages[i];
+	eleSideImg.classList.add('img-side');
+	
+	if (i === 0) {
+		eleSideImg.classList.add('focused');
+	}
+	
+	eleSide.append(eleSideImg);
 }
 
-
 const listEleImg = document.querySelectorAll('.slider-img'); 
+const listSideImg = document.querySelectorAll('.img-side'); 
 
 let activeIndex = 0;
 
 eleBtnDown.addEventListener('click', function () {
 
     listEleImg[activeIndex].classList.remove('active');
+    listSideImg[activeIndex].classList.remove('focused');
 
-    if(activeIndex === 4){
+    if(activeIndex === listEleImg.length - 1){
         activeIndex = -1;
     }
     
     activeIndex++;  
     listEleImg[activeIndex].classList.add('active');
+    listSideImg[activeIndex].classList.add('focused');
     
 });
 
 eleBtnUp.addEventListener('click', function () {
 
 	listEleImg[activeIndex].classList.remove('active');
+    listSideImg[activeIndex].classList.remove('focused');
+
 
     if(activeIndex === 0){
-        activeIndex = 5;
+        activeIndex = listEleImg.length;
     }
 
 	activeIndex--;
 	listEleImg[activeIndex].classList.add('active');
+    listSideImg[activeIndex].classList.add('focused');
+
 });
+
